@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Geraldin 💛</title>
 
 <style>
@@ -15,23 +16,25 @@ body{
 }
 
 h1{
-    margin-top:50px;
-    font-size:40px;
+    margin-top:40px;
+    font-size:28px;
+    padding:0 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.08);
 }
 
 p{
-    font-size:20px;
-    width:80%;
+    font-size:18px;
+    width:90%;
     margin:auto;
     line-height:1.6;
 }
 
 .card{
     background:white;
-    width:85%;
+    width:90%;
     max-width:600px;
     margin:30px auto;
-    padding:30px;
+    padding:25px;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.1);
     animation: fadeIn 2s ease-in-out;
@@ -40,8 +43,8 @@ p{
 button{
     background:#95d5b2;
     border:none;
-    padding:15px 30px;
-    font-size:18px;
+    padding:12px 25px;
+    font-size:16px;
     border-radius:30px;
     cursor:pointer;
     color:#1b4332;
@@ -50,11 +53,11 @@ button{
 
 button:hover{
     background:#74c69d;
-    transform:scale(1.1);
+    transform:scale(1.05);
 }
 
 #contador{
-    font-size:22px;
+    font-size:18px;
     margin-top:15px;
     font-weight:bold;
 }
@@ -64,6 +67,7 @@ button:hover{
     bottom: -10px;
     font-size:20px;
     animation: float 5s linear infinite;
+    pointer-events:none;
 }
 
 @keyframes float{
@@ -75,6 +79,23 @@ button:hover{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
 }
+
+/* Ajuste para pantallas grandes */
+@media (min-width:768px){
+    h1{
+        font-size:40px;
+    }
+    p{
+        font-size:20px;
+    }
+    button{
+        font-size:18px;
+        padding:15px 30px;
+    }
+    #contador{
+        font-size:22px;
+    }
+}
 </style>
 </head>
 
@@ -84,11 +105,11 @@ button:hover{
 
 <div class="card">
 <p>
-Geraldin... Mi amor, mi vida hermosa, mi corazoncito, mi bebesota hermosa!....
-desde el 12 de marzo del 2023 mi vida cambió completamente.
+Geraldin... Mi amor, mi vida hermosa, mi corazoncito,
+mi bebesota hermosa! Desde el 12 de marzo del 2023 mi vida cambió completamente.
 No sabía que alguien con ojos tan hermosos pudiera traer tanta paz a mi corazón.
 Me enamora siempre tu sonrisa, tu forma de ser, tu ternura 🥹…
-y cada día que pasa confirmo que eres lo mejor que me ha pasado.💫
+y cada día que pasa confirmo que eres lo mejor que me ha pasado. 💫
 </p>
 
 <div id="contador"></div>
@@ -111,7 +132,7 @@ window.addEventListener("load", function(){
     var audio = document.getElementById("musica");
     audio.volume = 0.4;
     audio.play().catch(function(){
-        console.log("El navegador bloqueó el autoplay.");
+        console.log("Autoplay bloqueado por el navegador.");
     });
 });
 
@@ -129,7 +150,7 @@ function mostrarMensaje(){
     document.getElementById("mensajeFinal").innerHTML =
     "Amorcito de mi alma, quiero seguir escribiendo nuestra historia contigo… " +
     "quiero más abrazos, más risas, más sueños juntos. 💛 " +
-    "Eres mi lugar favorito en el mundo. Te amo infinitamente!";
+    "Eres mi lugar favorito en el mundo. Te amo infinitamente.";
 }
 
 // Corazones flotando
@@ -146,14 +167,9 @@ function crearCorazon(){
     }, 5000);
 }
 
-setInterval(crearCorazon, 300);
+setInterval(crearCorazon, 400);
 
 </script>
 
 </body>
 </html>
-
-
-</body>
-</html>
-
