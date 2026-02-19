@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Para Geraldin 💛</title>
+
 <style>
 body{
     margin:0;
@@ -16,7 +17,6 @@ body{
 h1{
     margin-top:50px;
     font-size:40px;
-    animation: fadeIn 2s ease-in-out;
 }
 
 p{
@@ -34,7 +34,7 @@ p{
     padding:30px;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
 }
 
 button{
@@ -62,7 +62,6 @@ button:hover{
 .heart{
     position: fixed;
     bottom: -10px;
-    color:#74c69d;
     font-size:20px;
     animation: float 5s linear infinite;
 }
@@ -76,19 +75,38 @@ button:hover{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
 }
+
+/* Pantalla inicial */
+#intro{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#d8f3dc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10;
+}
 </style>
 </head>
 
 <body>
+
+<div id="intro">
+    <h2>Geraldin 💛</h2>
+    <p>Mi vida toca la pantalla para comenzar...</p>
+    <button onclick="iniciar()">Entrar</button>
+</div>
 
 <h1>Para la mujer que ilumina mi vida 💛</h1>
 
 <div class="card">
 <p>
 Geraldin... Mi amor, mi vida hermosa, mi corazoncito, mi bebesota hermosa!.... 
-desde el 12 de marzo del 2023 mi vida cambió completamente.  
-No sabía que alguien con ojos tan hermosos pudiera traer tanta paz a mi corazón.  
-Me enamora siempre tu sonrisa, tu forma de ser, tu ternura 🥹…  
+desde el 12 de marzo del 2023 mi vida cambió completamente. 
+No sabía que alguien con ojos tan hermosos pudiera traer tanta paz a mi corazón. 
+Me enamora siempre tu sonrisa, tu forma de ser, tu ternura 🥹… 
 y cada día que pasa confirmo que eres lo mejor que me ha pasado.💫
 </p>
 
@@ -100,11 +118,21 @@ y cada día que pasa confirmo que eres lo mejor que me ha pasado.💫
 <p id="mensajeFinal" style="margin-top:20px; font-weight:bold;"></p>
 </div>
 
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-piano-ambient-110397.mp3" type="audio/mpeg">
+<!-- TU CANCIÓN -->
+<audio id="musica" loop>
+  <source src="nuestra-cancion.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+
+// Iniciar página + música
+function iniciar(){
+    document.getElementById("intro").style.display = "none";
+    var audio = document.getElementById("musica");
+    audio.volume = 0.4;
+    audio.play();
+}
+
 // Contador desde 12/03/2023
 const fechaInicio = new Date("2023-03-12");
 const hoy = new Date();
@@ -112,21 +140,21 @@ const diferencia = hoy - fechaInicio;
 const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
 document.getElementById("contador").innerHTML =
-"Llevamos " + dias + " días construyendo esta historia tan hermosa! 💛";
+"Llevamos " + dias + " días construyendo esta historia tan hermosa 💛";
 
 // Mensaje final
 function mostrarMensaje(){
     document.getElementById("mensajeFinal").innerHTML =
-    "Geraldin, quiero seguir escribiendo nuestra historia contigo… " +
+    "Amorcito de mi alma, quiero seguir escribiendo nuestra historia contigo… " +
     "quiero más abrazos, más risas, más sueños juntos. 💛 " +
-    "Eres mi lugar favorito en este mundo. Te amo infinitamente.";
+    "Eres mi lugar favorito en el mundo. Te amo infinitamente!.";
 }
 
 // Corazones flotando
 function crearCorazon(){
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.innerHTML = "💛";
+    heart.innerHTML = "";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
     document.body.appendChild(heart);
@@ -137,6 +165,7 @@ function crearCorazon(){
 }
 
 setInterval(crearCorazon, 300);
+
 </script>
 
 </body>
